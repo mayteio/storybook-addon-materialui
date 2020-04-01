@@ -6,6 +6,11 @@ export default {
   title: 'Tests',
   component: TestComponent,
   decorators: [withMuiTheme()],
+  parameters: {
+    materialui: {
+      cssbaseline: false,
+    },
+  },
 };
 
 // Should take decorator from CFS

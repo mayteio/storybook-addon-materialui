@@ -6,6 +6,7 @@ import {
   DEFAULT_LIGHT_THEME,
   DEFAULT_DARK_THEME,
   PARAM_KEY,
+  PARAMETER_DEFAULTS,
 } from './constants';
 import {
   useChannel as useClientChannel,
@@ -16,6 +17,7 @@ import {
   MuiThemeProvider,
   CssBaseline,
   createMuiTheme,
+  Theme,
 } from '@material-ui/core';
 
 const defaultThemes = {
@@ -36,9 +38,9 @@ export const withMuiTheme = makeDecorator({
       emit(OPTIONS_INIT, options);
     }, [options]);
 
-    const themeSet: Record<string, any> = options ? options : defaultThemes;
+    const themeSet: Record<string, Theme> = options ? options : defaultThemes;
 
-    let activeTheme: any = themeSet[Object.keys(themeSet)[0]];
+    let activeTheme: Theme = themeSet[Object.keys(themeSet)[0]];
     if (theme !== undefined) {
       activeTheme =
         // @ts-ignore
@@ -48,13 +50,13 @@ export const withMuiTheme = makeDecorator({
     }
 
     // parameter
-    const parameters = useParameter(PARAM_KEY, { disable: false });
+    const parameters = useParameter(PARAM_KEY, PARAMETER_DEFAULTS);
 
     return parameters?.disable ? (
       storyFn(context)
     ) : (
       <MuiThemeProvider theme={activeTheme}>
-        <CssBaseline />
+        {parameters?.cssbaseline && <CssBaseline />}
         {storyFn(context)}
       </MuiThemeProvider>
     );

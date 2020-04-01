@@ -59,7 +59,9 @@ withMuiTheme({
 
 ## Parameters
 
-You can optionally disable the wrapper for specific stories by passing `disable` as a `materialui` parameter:
+### Disable `ThemeProvider` wrapper for a single story
+
+You can disable the wrapper (essentailly the whole addon) for particular stories by adding the `disable` parameter to `materialui`:
 
 ```js
 // CFS export
@@ -68,6 +70,22 @@ export default {
   parameters: {
     materialui: {
       disable: true,
+    },
+  },
+};
+```
+
+### Disable [`<CssBaseline />`](https://material-ui.com/components/css-baseline/)
+
+You may be using [`@storybook/addon-backgrounds`](https://github.com/storybookjs/storybook/tree/master/addons/backgrounds) and not want the background controlled by this addon. Simply pass the cssbaseline: false parameter to prevent the [`<CssBaseline />`](https://material-ui.com/components/css-baseline/) component from being injected.
+
+```js
+// CFS export
+export default {
+  title: 'Disable parameter',
+  parameters: {
+    materialui: {
+      cssbaseline: false,
     },
   },
 };
