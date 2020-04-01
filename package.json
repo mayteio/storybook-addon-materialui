@@ -1,11 +1,12 @@
 {
-  "version": "0.1.0",
+  "version": "2.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
-    "src"
+    "src",
+    "register.js"
   ],
   "engines": {
     "node": ">=10"
@@ -33,9 +34,10 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "storybook-addon-mui-theme",
+  "name": "@harelpls/storybook-addon-materialui",
   "author": "Harley Alexander",
   "module": "dist/storybook-addon-mui-theme.esm.js",
+  "description": "A simple decorator to wrap your stories in a @material-ui/core theme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@storybook/addon-actions": "^5.3.18",

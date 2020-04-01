@@ -7,9 +7,3 @@ export default {
 
 // Should take decorator from global
 export const GlobalDecorator1 = () => <TestComponent />;
-export const GlobalDecoratorDisable = () => <TestComponent />;
-GlobalDecoratorDisable.storybook = {
-  materialui: {
-    disable: true,
-  },
-};

@@ -1,10 +1,11 @@
 import React from 'react';
-import { makeDecorator } from '@storybook/addons';
+import { makeDecorator, useParameter } from '@storybook/addons';
 import {
   CHANGE_THEME,
   OPTIONS_INIT,
   DEFAULT_LIGHT_THEME,
   DEFAULT_DARK_THEME,
+  PARAM_KEY,
 } from './constants';
 import {
   useChannel as useClientChannel,
@@ -46,7 +47,12 @@ export const withMuiTheme = makeDecorator({
           : themeSet[Object.keys(themeSet)[0]];
     }
 
-    return (
+    // parameter
+    const parameters = useParameter(PARAM_KEY, { disable: false });
+
+    return parameters?.disable ? (
+      storyFn(context)
+    ) : (
       <MuiThemeProvider theme={activeTheme}>
         <CssBaseline />
         {storyFn(context)}
