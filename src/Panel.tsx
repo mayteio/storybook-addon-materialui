@@ -25,7 +25,7 @@ export const Panel = () => {
 
   useEffect(() => {
     emit(CHANGE_THEME, theme);
-  }, [theme]);
+  }, [theme, emit]);
 
   // parameter
   const { disable } = useParameter(PARAM_KEY, PARAMETER_DEFAULTS);
