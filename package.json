@@ -37,7 +37,7 @@
   "name": "@harelpls/storybook-addon-materialui",
   "author": "Harley Alexander",
   "module": "dist/storybook-addon-mui-theme.esm.js",
-  "description": "A simple decorator to wrap your stories in a @material-ui/core theme",
+  "description": "A simple decorator to wrap your stories in a @mui-org material-ui theme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@storybook/addon-actions": "^5.3.18",
@@ -63,5 +63,13 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.8"
+  },
+  "keywords": [
+    "storybook-addon",
+    "style"
+  ],
+  "storybook": {
+    "icon": "https://pbs.twimg.com/profile_images/1216314751770333184/6pMOe8z7_400x400.jpg",
+    "displayName": "Material UI"
   }
 }
