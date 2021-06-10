@@ -1,26 +1,26 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import { DEFAULT_LIGHT_THEME, DEFAULT_DARK_THEME } from './constants';
 
-export const darkPinkTheme = createMuiTheme({
+export const darkPinkTheme = createTheme({
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: { main: '#e50e56' },
   },
 });
 
-export const lightGreenTheme = createMuiTheme({
+export const lightGreenTheme = createTheme({
   palette: {
     primary: { main: '#008850' },
   },
 });
 
-export const lightBlueTheme = createMuiTheme({
+export const lightBlueTheme = createTheme({
   palette: {
     primary: { main: '#277BB4' },
   },
 });
 
 export const defaultThemes = {
-  [DEFAULT_LIGHT_THEME]: createMuiTheme({ palette: { type: 'light' } }),
-  [DEFAULT_DARK_THEME]: createMuiTheme({ palette: { type: 'dark' } }),
+  [DEFAULT_LIGHT_THEME]: createTheme({ palette: { mode: 'light' } }),
+  [DEFAULT_DARK_THEME]: createTheme({ palette: { mode: 'dark' } }),
 };
