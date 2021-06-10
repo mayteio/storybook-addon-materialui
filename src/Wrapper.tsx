@@ -1,5 +1,10 @@
 import React from 'react';
-import { Theme, MuiThemeProvider, CssBaseline } from '@material-ui/core';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import {
+  StyledEngineProvider,
+  ThemeProvider,
+  Theme,
+} from '@material-ui/core/styles';
 import { useParameter, StoryWrapper } from '@storybook/addons';
 import {
   useChannel as useClientChannel,
@@ -41,9 +46,11 @@ export const Wrapper: StoryWrapper = (storyFn, context, { options }) => {
   return parameters?.disable ? (
     storyFn(context)
   ) : (
-    <MuiThemeProvider theme={activeTheme}>
-      {parameters?.cssbaseline && <CssBaseline />}
-      {storyFn(context)}
-    </MuiThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={activeTheme}>
+        {parameters?.cssbaseline && <CssBaseline />}
+        {storyFn(context)}
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
